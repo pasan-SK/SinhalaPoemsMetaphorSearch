@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=”en”>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> -->
+        {% block head %}{% endblock %}
+        <style>
+            .metaphor-page-container .logo-boy{
+                width: 300px;
+                height: 300px
+            }
+            .metaphor-page-container .logo-girl{
+                width: 128px;
+                height: 300px
+            }
+            .metaphor-page-container .poster{
+                background-color: #dfe6e1;
+            }
+            @media (min-width: 768px){
+            .metaphor-page-container .search{
+                width: 700px;
+            }
+            }
+            @media (min-width: 576px){
+            .metaphor-page-container .twoselected{
+                width: 540px;
+            }
+            }
+            @media (min-width: 992px){
+            .metaphor-page-container .moreselected{
+                width: 400px;
+            }
+            }
+            @media (min-width: 576px){
+            .metaphor-page-container .details{
+                width: 400px;
+            }
+            }
+            .metaphor-page-container .selectt {
+                display: none;
+                margin-top: 30px;
+            }
+            .metaphor-page-container .submit-button{
+                background-color: #e66c6c;
+                border: none;
+                border-radius: 5px;
+            }
+            @media (min-width: 768px){
+            .metaphor-page-container .results{
+                width: 700px;
+            }
+            }
+            label {
+                text-align: right;
+                clear: both;
+                float:left;
+                margin-right:15px;
+            }
+        </style>
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+    <script type="text/javascript">
+        $(document).ready(function() {
+                    $('input[type="radio"]').click(function() {
+                        var inputValue = $(this).attr("value");
+                        var targetBox = $("." + inputValue);
+                        $(".selectt").not(targetBox).hide();
+                        $(targetBox).show();
+                    });
+                });
+    </script>
+</html>
